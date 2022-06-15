@@ -54,13 +54,9 @@ const updateUi = (data) => {
     temperatures.innerHTML = `<span>${temp}</span><span>${degType}</span>`;
     
     //display time of the day
-    const timeOfDay = weather.IsDayTime;
-    let url = '';
-    if(timeOfDay){
-        url = 'img/day.svg';
-    }else{
-        url = 'img/night.svg';
-    }
+    
+    let url = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
+    
     cardImg.setAttribute('src', url);
     
     //display icon

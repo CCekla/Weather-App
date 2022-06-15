@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="style.css" rel="stylesheet">
+    <title>Weather</title>
+</head>
+<body class="bg-stone-200">
+    <main class="container mx-auto my-5 max-w-sm">
+        <header class="text-center">
+            <h1 class="mb-6 text-zinc-500 text-5xl font-bold tracking-wide">Weather</h1>
+            <form class="flex flex-col">
+                <label for="search" class="text-zinc-400 text-sm">Search a city weather</label>
+                <input class="border rounded mt-2 mb-4 py-2 px-4 focus:outline-none focus:border-purple-500" type="text" name="search">
+            </form>
+        </header>
+        <div>
+            <!-- weather card -->
+
+            <div class="bg-white shadow-lg rounded card hidden">
+                <img src="https://via.placeholder.com/400x300" class="time" alt="">
+                <div class="weather-icon bg-zinc-200 max-w-[100px] relative -top-[50px] -mb-[50px] mx-auto text-center rounded-full">
+                    <img src="" alt="">
+                </div>
+
+                <div class="text-center uppercase text-zinc-400 bg-white details">
+                    <p class="city text-xl font-semibold my-2">city name</p>
+                    <p class="weather-name text-zinc-300">type of weather</p>
+                    <p class="temperature mt-4 text-5xl font-extralight">
+                        <span>temp</span>
+                        <span>&deg;C</span>
+                    </p>
+                    
+                </div>
+                <label class="relative flex justify-center items-center bg-white text-zinc-400 cursor-pointer py-6">
+                    °C
+                    <input id="switch" type="checkbox" class="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md cursor-pointer" />
+                    <span class="w-10 h-6 flex items-center flex-shrink-0 mx-2 p-1 bg-cyan-600 rounded-full duration-300 ease-in-out peer-checked:bg-teal-600 after:w-4 after:h-4 after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-4"></span>
+                    °F
+                </label>
+            </div>
+        </div>
+    </main>
+    <script type='text/javascript' src='../script/config.js'></script>
+    <script type='text/javascript' src='../script/forecast.js'></script>
+    <script type='text/javascript' src='../script/app.js'></script>
+
+</body>
+</html>

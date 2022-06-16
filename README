@@ -1,2 +1,9 @@
-Another display of extreme originality, a Weather App!
-Please be kind, I'm following a Udemy course and trying to buff up my javascript skills.
+# Weather-App 
+
+A project exercise for the Udemy course [Modern Javascript](https://www.udemy.com/course/modern-javascript-from-novice-to-ninja/) by the **amazing** The Net Ninja.
+
+## Technologies
+
+* HTML
+* Javascript
+* TailwindCSS

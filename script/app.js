@@ -56,7 +56,7 @@ const updateUi = (data) => {
     //display time of the day
     
     let url = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
-    
+
     cardImg.setAttribute('src', url);
     
     //display icon
@@ -92,6 +92,14 @@ weatherForm.addEventListener('submit', event => {
 
     //update with new city
     updateCity(city).then(data => updateUi(data)).catch(error => console.log(error));
+
+    //set localStorage
+    localStorage.setItem('city', city);
 });
+
+//check if there's already a city stored in localStorage
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city')).then(data => updateUi(data)).catch(error => console.log(error));
+}
 
 

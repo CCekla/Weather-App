@@ -1,8 +1,8 @@
 //npx tailwindcss -i ./src/style.css -o ./public/style.css --watch
 
 //get form input
-
 const weatherForm = document.querySelector('form');
+
 const card = document.querySelector('.card');
 const weatherCity = document.querySelector('.city');
 const weatherName = document.querySelector('.weather-name');
@@ -11,12 +11,14 @@ const temperatures = document.querySelector('.temperature');
 const cardImg = document.querySelector('img.time');
 const icon = document.querySelector('.weather-icon img');
 
+const forecast = new Forecast();
+
 let degF = 0;
 let degC = 0;
 let temp = 0;
 let degType = '';
 
-//switch trial
+//toggle from C to F
 
 const toggle = document.getElementById('switch');
 
@@ -71,18 +73,6 @@ const updateUi = (data) => {
     }
 };
 
-const updateCity = async city => {
-    //console.log(city);
-    const details = await getCity(city);
-    const weather = await getWeather(details.Key);
-
-    return {
-        //shorthand object notation name of prop === value
-        details,
-        weather
-    };
-};
-
 weatherForm.addEventListener('submit', event => {
     event.preventDefault();
     //get the city searched
@@ -91,7 +81,7 @@ weatherForm.addEventListener('submit', event => {
     weatherForm.reset();
 
     //update with new city
-    updateCity(city).then(data => updateUi(data)).catch(error => console.log(error));
+    forecast.updateCity(city).then(data => updateUi(data)).catch(error => console.log(error));
 
     //set localStorage
     localStorage.setItem('city', city);
@@ -99,7 +89,7 @@ weatherForm.addEventListener('submit', event => {
 
 //check if there's already a city stored in localStorage
 if(localStorage.getItem('city')){
-    updateCity(localStorage.getItem('city')).then(data => updateUi(data)).catch(error => console.log(error));
+    forecast.updateCity(localStorage.getItem('city')).then(data => updateUi(data)).catch(error => console.log(error));
 }
 
 
